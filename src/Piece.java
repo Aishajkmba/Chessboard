@@ -8,27 +8,16 @@ public class Piece {
         this.row = row;
         this.column = column;
         this.isBlack = isBlack;
-        symbol = 'x'; //dummy symbol
+        symbol = 'x';  // dummy symbol - shouldn't ever appear on the board
     }
-    public Piece(String position,boolean isBlack) {
+
+    public Piece(String position, boolean isBlack) {
         this.isBlack = isBlack;
         symbol = 'x';
-        row = getRowFromPosition(position);
-        column = getColumnFromPosition(position);
+        row = Chessutils.getRowFromPosition(position);
+        column = Chessutils.getColumnFromPosition(position);
     }
-    //e.g for a position AB return row number 7
-    private int getRowFromPosition(String p){
-        char posChar = p.toCharArray()[1]; // "A8 ->'8
-        int rowNumber = Character.getNumericValue(posChar)// '8'->8
-        return rowNumber -1;
-    }
-    //e.g for position AB return column 0
-    private int getColumnFromPosition(String p){
-      char colChar = p.toCharArray()[0];
-       int asciValue = colChar;
-       int colNumber = asciValue - (int)'A'; // A to B
-       return colNumber;
-}
+
 
     public char getSymbol() {
         if (isBlack) {
@@ -37,13 +26,24 @@ public class Piece {
         return Character.toLowerCase(symbol);
     }
 
-    public String getPosition(){ return Chessutils.columnToLetter(column);
+    // convert row and column values to chess Notation eg 0,0 -> A1
+    public String getPosition() {
+        return Chessutils.columnToLetter(column) + Chessutils.rowToNumber(row);
+    }
 
-        public boolean isValidMove(String targetPosition) {
-            return true;
-        }
+    // set a new position for the piece
+    public void setPosition(String newPosition) {
+        int startPosition = Chessutils.getRowFromPosition(newPosition);
+
+
+    }
+    public boolean isValidMove(String targetPosition) {
+        return true;
     }
 }
+
+
+
 
 
 
