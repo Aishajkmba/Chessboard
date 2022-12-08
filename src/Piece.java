@@ -40,7 +40,10 @@ public class Piece {
     public boolean isValidMove(String targetPosition) {
         return true;
     }
-}
+
+
+    }
+
 
 
 

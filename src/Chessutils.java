@@ -1,5 +1,5 @@
 public class Chessutils {
-    // eg for a position A8 return row number 7
+    // e.g for a position A8 return row number 7
     public static int getRowFromPosition(String p) {
         char posChar = p.toCharArray()[1]; // "A8" -> '8'
         int rowNumber = Character.getNumericValue(posChar); // '8'->8

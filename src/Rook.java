@@ -1,15 +1,15 @@
-public class  King extends Piece{
+public class Rook extends Piece {
     private boolean inCheck;
 
 
-    public King(String position, boolean isBlack){
+    public Rook(String position, boolean isBlack) {
         super(position, isBlack);
-        symbol = 'K';
+        symbol = 'R';
         inCheck = false;
+
     }
-    //kings can move in 1 square in any direction
     public boolean isValidMove(String targetPosition){
-    //convert position to row and column
+        //convert position to row and column
         int startRow = Chessutils.getRowFromPosition(getPosition());
         int startColumn = Chessutils.getColumnFromPosition(getPosition());
         int targetRow = Chessutils.getRowFromPosition(targetPosition);
